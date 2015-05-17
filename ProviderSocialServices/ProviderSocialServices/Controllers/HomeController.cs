@@ -1,5 +1,4 @@
-﻿using BD;
-using ProviderSocialServices.Models;
+﻿using ProviderSocialServices.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,14 +9,9 @@ namespace ProviderSocialServices.Controllers
 {
     public class HomeController : Controller
     {
-        WorkWithBD bd = new WorkWithBD();
         public ActionResult Index()
         {
-            MainPageModel main = new MainPageModel();
-            bd.OpenConnection();
-            main.Organizations = bd.GetOrganizations();
-            bd.CloseConnection();
-            return View(main);
+            return View(new MainPageModel());
         }
 
         public ActionResult About()
