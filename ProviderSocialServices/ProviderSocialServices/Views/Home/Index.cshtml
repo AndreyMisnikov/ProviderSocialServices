@@ -4,6 +4,29 @@
 
 @model ProviderSocialServices.Models.MainPageModel
 
-<div class="jumbotron">
-    <h1>Поставщики социальных услуг</h1>
-</div>
+<br/>
+<h4>Список организаций</h4>
+
+<table class="table table-bordered table-hover">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Имя</th>
+        <th>Полное имя</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+
+    @foreach (var item in Model.Organizations)
+    {
+        <tr>
+            <td>@Html.DisplayFor(itemModel => item.Id_Organization, new {@class = "control-label"})</td>
+            <td>@Html.DisplayFor(itemModel => item.Name, new {@class = "control-label"})</td>
+            <td>@Html.DisplayFor(itemModel => item.FullName, new {@class = "control-label"})</td>
+            <td style="text-align: center; vertical-align: middle;"><a title="" href="" data-original-title="Example"><i class="glyphicon glyphicon-eye-open"></i></a></td>
+        </tr>
+    }
+    </tbody>
+</table>
+
