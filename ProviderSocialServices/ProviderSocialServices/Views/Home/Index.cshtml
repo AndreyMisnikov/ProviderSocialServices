@@ -1,32 +1,50 @@
 ﻿@{
     ViewBag.Title = "Home Page";
 }
-
 @model ProviderSocialServices.Models.MainPageModel
+<br />
+<h2>Список организаций</h2>
 
-<br/>
-<h4>Список организаций</h4>
-
+@if (User.Identity.IsAuthenticated)
+{
+    <a href="../Organization/Add"> <button class="btn btn-info pull-right"> Предложить организацию</button>  </a>
+}
 <table class="table table-bordered table-hover">
     <thead>
-    <tr>
-        <th>ID</th>
-        <th>Имя</th>
-        <th>Полное имя</th>
-        <th></th>
-    </tr>
+        <tr>
+            <th>ID</th>
+            <th>Имя</th>
+            <th>Полное имя</th>
+            <th></th>
+        </tr>
     </thead>
     <tbody>
 
-    @foreach (var item in Model.Organizations)
-    {
-        <tr>
-            <td>@Html.DisplayFor(itemModel => item.Id_Organization, new {@class = "control-label"})</td>
-            <td>@Html.DisplayFor(itemModel => item.Name, new {@class = "control-label"})</td>
-            <td>@Html.DisplayFor(itemModel => item.FullName, new {@class = "control-label"})</td>
-            <td style="text-align: center; vertical-align: middle;"><a title="" href="" data-original-title="Example"><i class="glyphicon glyphicon-eye-open"></i></a></td>
-        </tr>
-    }
+        @foreach (var item in Model.Organizations)
+        {
+            <tr>
+                <td>@Html.DisplayFor(itemModel => item.Id_Organization, new { @class = "control-label" })</td>
+                <td>@Html.DisplayFor(itemModel => item.Name, new { @class = "control-label" })</td>
+                <td>@Html.DisplayFor(itemModel => item.FullName, new { @class = "control-label" })</td>
+                <td style="text-align: center; vertical-align: middle;">
+                    <i class="glyphicon glyphicon-eye-open"></i>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
 
+<script>
+$(document).ready(function () {
+$('i').bind('click', GetInformationAboutTable);
+});
+
+function GetInformationAboutTable() {
+        var organizationId = $(this).parents().eq(1).find('td').first().text();
+        $.post("/Organization/Information/", {
+            id: organizationId
+        }, function () {
+            document.location.href = '/Organization/Information/' + organizationId;
+        });
+}
+</script>

@@ -1,0 +1,43 @@
+﻿@{
+    ViewBag.Title = "Add";
+}
+
+
+@model ProviderSocialServices.Models.InformationAboutOrganization
+@if (User.Identity.IsAuthenticated)
+{
+<br />
+<h2>Добавление организации</h2>
+    <div class="tabbable">
+        <!-- Only required for left/right tabs -->
+        <ul class="nav nav-tabs">
+            <li class="active"><a href="#tab1" data-toggle="tab">Справка</a></li>
+            <li><a href="#tab2" data-toggle="tab">Контакты</a></li>
+            <li><a href="#tab3" data-toggle="tab">Деятельность</a></li>
+            <li><a href="#tab4" data-toggle="tab">Ресурсы</a></li>
+        </ul>
+        <form method="post">
+            <div class="tab-content">
+                <div class="tab-pane active fade" id="tab1">
+                    <div class="row">
+                        <div class="col-lg-3 col-md-3">
+                            Название организации
+                        </div>
+                        <div class="col-lg-3 col-md-3">
+                            <input type="text" name="Organization.Name"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="tab2">
+                <p>Second</p>
+            </div>
+            <div class="tab-pane active fade" id="tab3">
+                <p>Third</p>
+            </div>
+            <div class="tab-pane fade" id="tab4">
+                <p>Four</p>
+            </div>
+        </form>
+    </div>
+}

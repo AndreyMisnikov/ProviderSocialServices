@@ -953,7 +953,7 @@ namespace ProviderSocialServices
         /// </summary>
         /// <param name="idOrg"></param>
         /// <returns></returns>
-        public List<Service> GetServicesByIdORganization(int idOrg)
+        public List<Service> GetServicesByIdOrganization(int idOrg)
         {
             SqlCommand command = new SqlCommand("Select * From Service Where Id_Organization = @Id_Organization", connection);
             command.Parameters.AddWithValue("@Id_Organization", idOrg);
