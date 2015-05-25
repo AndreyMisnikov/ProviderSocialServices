@@ -1238,5 +1238,86 @@ namespace ProviderSocialServices
             command.Parameters.AddWithValue("@idOrganizationLegalForm", idOrganizationLegalForm);
             return (string)command.ExecuteScalar();
         }
+
+
+        #region procedure
+        public int _CountActrualAddress(int idOrg)
+        {
+            SqlCommand command = new SqlCommand("_CountActrualAddress", connection);
+            command.CommandType = System.Data.CommandType.StoredProcedure;
+            command.Parameters.AddWithValue("@Id_Organization", idOrg);
+            return Convert.ToInt32(command.ExecuteScalar());
+        }
+
+        public int _CountEmail(int idOrg)
+        {
+            SqlCommand command = new SqlCommand("_CountEmail", connection);
+            command.CommandType = System.Data.CommandType.StoredProcedure;
+            command.Parameters.AddWithValue("@Id_Organization", idOrg);
+            return Convert.ToInt32(command.ExecuteScalar());
+        }
+
+        public int _CountLegalAddress(int idOrg)
+        {
+            SqlCommand command = new SqlCommand("_CountLegalAddress", connection);
+            command.CommandType = System.Data.CommandType.StoredProcedure;
+            command.Parameters.AddWithValue("@Id_Organization", idOrg);
+            return Convert.ToInt32(command.ExecuteScalar());
+        }
+
+        public int _CountProject(int idOrg)
+        {
+            SqlCommand command = new SqlCommand("_CountProject", connection);
+            command.CommandType = System.Data.CommandType.StoredProcedure;
+            command.Parameters.AddWithValue("@Id_Organization", idOrg);
+            return Convert.ToInt32(command.ExecuteScalar());
+        }
+
+        public int _CountService(int idOrg)
+        {
+            SqlCommand command = new SqlCommand("_CountService", connection);
+            command.CommandType = System.Data.CommandType.StoredProcedure;
+            command.Parameters.AddWithValue("@Id_Organization", idOrg);
+            return Convert.ToInt32(command.ExecuteScalar());
+        }
+
+        public int _CountSite(int idOrg)
+        {
+            SqlCommand command = new SqlCommand("_CountSite", connection);
+            command.CommandType = System.Data.CommandType.StoredProcedure;
+            command.Parameters.AddWithValue("@Id_Organization", idOrg);
+            return Convert.ToInt32(command.ExecuteScalar());
+        }
+
+        public int _CountTelephone(int idOrg)
+        {
+            SqlCommand command = new SqlCommand("_CountTelephone", connection);
+            command.CommandType = System.Data.CommandType.StoredProcedure;
+            command.Parameters.AddWithValue("@Id_Organization", idOrg);
+            return Convert.ToInt32(command.ExecuteScalar());
+        }
+
+        public int _LifeTimeOfTheOrganization(int idOrg)
+        {
+            SqlCommand command = new SqlCommand("_LifeTimeOfTheOrganization", connection);
+            command.CommandType = System.Data.CommandType.StoredProcedure;
+            command.Parameters.AddWithValue("@Id_Organization", idOrg);
+            return Convert.ToInt32(command.ExecuteScalar());
+        }
+
+        public int MaxValue()
+        {
+            SqlCommand command = new SqlCommand("MaxValue", connection);
+            command.CommandType = System.Data.CommandType.StoredProcedure;
+            return Convert.ToInt32(command.ExecuteScalar());
+        }
+
+        public int MinValue()
+        {
+            SqlCommand command = new SqlCommand("MinValue", connection);
+            command.CommandType = System.Data.CommandType.StoredProcedure;
+            return Convert.ToInt32(command.ExecuteScalar());
+        }
+        #endregion
     }
 }
