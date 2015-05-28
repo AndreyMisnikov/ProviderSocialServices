@@ -9,7 +9,8 @@ namespace ProviderSocialServices.Controllers
 {
     public class HomeController : Controller
     {
-        WorkWithBD bd = new WorkWithBD();
+        private WorkWithBD bd = new WorkWithBD();
+
         public ActionResult Index()
         {
             MainPageModel main = new MainPageModel();
@@ -63,7 +64,7 @@ namespace ProviderSocialServices.Controllers
                     case ("Минимальное значение"):
                         pr.Answer = bd.MinValue().ToString();
                         break;
-                        
+
                 }
             }
             catch (Exception ex)
@@ -74,9 +75,5 @@ namespace ProviderSocialServices.Controllers
             return View(pr);
         }
 
-        public ActionResult Triggers()
-        {
-            return View();
-        }
     }
 }

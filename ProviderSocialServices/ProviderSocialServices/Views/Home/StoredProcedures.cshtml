@@ -5,55 +5,40 @@
 
 <br />
 <h2>Хранимые процедуры</h2>
-
 <div class="input-prepend input-append">
     <form method="post">
-        <div class="btn-group">
-            <button class="btn dropdown-toggle" data-toggle="dropdown">
-                Количество фактических адресов
-                <span class="caret"></span>
-            </button>
-            <ul class="dropdown-menu">
-                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Количество фактических адресов</a></li>
-                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Количесвто юридических адресов</a></li>
-                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Количество emails</a></li>
-                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Количество проектов</a></li>
-                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Количество услуг</a></li>
-                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Количество сайтов</a></li>
-                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Количество телефонов</a></li>
-                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Количество дней существования организации</a></li>
-                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Максимальное значение</a></li>
-                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Минимальное значение</a></li>
-            </ul>
+        <select name="NameProcedure">
+            <option value="Количество фактических адресов">Количество фактических адресов</option>
+            <option value="Количесвто юридических адресов">Количесвто юридических адресов</option>
+            <option value="Количество emails"> Количество emails</option>
+            <option value="Количество проектов">
+                Количество проектов
+            </option>
+            <option value="Количество услуг">
+                Количество услуг
+            </option>
+            <option value="Количество сайтов">
+                Количество сайтов
+            </option>
+            <option value="Количество телефонов">
+                Количество телефонов
+            </option>
+            <option value="Количество дней существования организации">
+                Количество дней существования организации
+            </option>
+            <option value="Максимальное значение"> Максимальное значение
+            </option>
+            <option value="Минимальное значение">Минимальное значение</option>
+        </select>
+
+        <input type="text" name="Params"/>
+        <button type="submit">Выполнить</button>
+
+        <div class="alert alert-info">
+            Результат - @Model.Answer
         </div>
-        <input class=".input-large" name="Params" type="text" id="param">
-        <button class="btn" id="btnExecute">Выполнить</button>
     </form>
 </div>
 
-<div class="alert alert-info">Результат - @Model.Answer
-</div> 
-<script>
-    $(document).ready(function () {
-        $(".dropdown-menu li a").click(function () {
-            var selText = $(this).text();
-            $(this).parents('.btn-group').find('.dropdown-toggle').html(selText + ' <span class="caret"></span>');
-        });
 
-        $(document).ready(function () {
-            $('#btnExecute').bind('click', ExecuteProcedure);
-            $('#param').val("");
-        });
-    });
 
-    function ExecuteProcedure() {
-       /* var name = $('.btn.dropdown-toggle').text();
-        $.post("/Home/StoredProcedures/", {
-            NameProcedure: name,
-            Params: $('#param').val()
-        }, function () {
-            //document.location.href = '/Home/StoredProcedures/';
-        });*/
-    }
-
-</script>

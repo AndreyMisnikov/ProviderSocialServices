@@ -72,10 +72,12 @@ D:\ProviderSocialServices\ProviderSocialServices\bin\ru\Microsoft.Owin.Security.
 D:\ProviderSocialServices\ProviderSocialServices\obj\Debug\ProviderSocialServices.csprojResolveAssemblyReference.cache
 D:\ProviderSocialServices\ProviderSocialServices\obj\Debug\ProviderSocialServices.dll
 D:\ProviderSocialServices\ProviderSocialServices\obj\Debug\ProviderSocialServices.pdb
+D:\3 курс\2 семестр\БД\www\ProviderSocialServices\ProviderSocialServices\obj\Debug\ProviderSocialServices.csprojResolveAssemblyReference.cache
 D:\3 курс\2 семестр\БД\www\ProviderSocialServices\ProviderSocialServices\bin\ProviderSocialServices.dll.config
 D:\3 курс\2 семестр\БД\www\ProviderSocialServices\ProviderSocialServices\bin\ProviderSocialServices.dll
 D:\3 курс\2 семестр\БД\www\ProviderSocialServices\ProviderSocialServices\bin\ProviderSocialServices.pdb
 D:\3 курс\2 семестр\БД\www\ProviderSocialServices\ProviderSocialServices\bin\Antlr3.Runtime.dll
+D:\3 курс\2 семестр\БД\www\ProviderSocialServices\ProviderSocialServices\bin\BD.dll
 D:\3 курс\2 семестр\БД\www\ProviderSocialServices\ProviderSocialServices\bin\EntityFramework.dll
 D:\3 курс\2 семестр\БД\www\ProviderSocialServices\ProviderSocialServices\bin\EntityFramework.SqlServer.dll
 D:\3 курс\2 семестр\БД\www\ProviderSocialServices\ProviderSocialServices\bin\Microsoft.AspNet.Identity.Core.dll
@@ -101,6 +103,7 @@ D:\3 курс\2 семестр\БД\www\ProviderSocialServices\ProviderSocialSer
 D:\3 курс\2 семестр\БД\www\ProviderSocialServices\ProviderSocialServices\bin\System.Web.WebPages.dll
 D:\3 курс\2 семестр\БД\www\ProviderSocialServices\ProviderSocialServices\bin\System.Web.WebPages.Razor.dll
 D:\3 курс\2 семестр\БД\www\ProviderSocialServices\ProviderSocialServices\bin\WebGrease.dll
+D:\3 курс\2 семестр\БД\www\ProviderSocialServices\ProviderSocialServices\bin\BD.pdb
 D:\3 курс\2 семестр\БД\www\ProviderSocialServices\ProviderSocialServices\bin\System.Web.Helpers.xml
 D:\3 курс\2 семестр\БД\www\ProviderSocialServices\ProviderSocialServices\bin\System.Web.Mvc.xml
 D:\3 курс\2 семестр\БД\www\ProviderSocialServices\ProviderSocialServices\bin\System.Web.Optimization.xml
@@ -143,8 +146,5 @@ D:\3 курс\2 семестр\БД\www\ProviderSocialServices\ProviderSocialSer
 D:\3 курс\2 семестр\БД\www\ProviderSocialServices\ProviderSocialServices\bin\ru\Microsoft.Owin.Security.Google.resources.dll
 D:\3 курс\2 семестр\БД\www\ProviderSocialServices\ProviderSocialServices\bin\ru\Microsoft.Owin.Security.Twitter.resources.dll
 D:\3 курс\2 семестр\БД\www\ProviderSocialServices\ProviderSocialServices\bin\ru\Microsoft.Owin.Security.MicrosoftAccount.resources.dll
-D:\3 курс\2 семестр\БД\www\ProviderSocialServices\ProviderSocialServices\obj\Debug\ProviderSocialServices.csprojResolveAssemblyReference.cache
 D:\3 курс\2 семестр\БД\www\ProviderSocialServices\ProviderSocialServices\obj\Debug\ProviderSocialServices.dll
 D:\3 курс\2 семестр\БД\www\ProviderSocialServices\ProviderSocialServices\obj\Debug\ProviderSocialServices.pdb
-D:\3 курс\2 семестр\БД\www\ProviderSocialServices\ProviderSocialServices\bin\BD.dll
-D:\3 курс\2 семестр\БД\www\ProviderSocialServices\ProviderSocialServices\bin\BD.pdb

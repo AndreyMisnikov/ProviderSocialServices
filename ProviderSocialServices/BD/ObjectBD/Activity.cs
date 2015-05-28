@@ -1,4 +1,4 @@
-﻿namespace ProviderSocialServices.ObjectBD
+﻿namespace BD.ObjectBD
 {
     public class Activity
     {

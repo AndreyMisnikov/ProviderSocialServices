@@ -1,0 +1,1541 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="OrganizationsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="__MigrationHistory">
+          <Key>
+            <PropertyRef Name="MigrationId" />
+            <PropertyRef Name="ContextKey" />
+          </Key>
+          <Property Name="MigrationId" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="ContextKey" Type="nvarchar" MaxLength="300" Nullable="false" />
+          <Property Name="Model" Type="varbinary(max)" Nullable="false" />
+          <Property Name="ProductVersion" Type="nvarchar" MaxLength="32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Activity">
+          <Key>
+            <PropertyRef Name="Id_Activity" />
+          </Key>
+          <Property Name="Id_Activity" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" />
+          <Property Name="ShortName" Type="nvarchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="AspNetRoles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserClaims">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ClaimType" Type="nvarchar(max)" />
+          <Property Name="ClaimValue" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogins">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="LoginProvider" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ProviderKey" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserRoles">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="RoleId" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUsers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="256" />
+          <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
+          <Property Name="PasswordHash" Type="nvarchar(max)" />
+          <Property Name="SecurityStamp" Type="nvarchar(max)" />
+          <Property Name="PhoneNumber" Type="nvarchar(max)" />
+          <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="datetime" />
+          <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="int" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AvailableService">
+          <Key>
+            <PropertyRef Name="Id_AvailableService" />
+          </Key>
+          <Property Name="Id_AvailableService" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="ShortName" Type="nvarchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="CategoryOfClient">
+          <Key>
+            <PropertyRef Name="Id_CategoryOfClient" />
+          </Key>
+          <Property Name="Id_CategoryOfClient" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="ShortName" Type="nvarchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="Contact">
+          <Key>
+            <PropertyRef Name="Id_Contact" />
+          </Key>
+          <Property Name="Id_Contact" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TypeContact" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="ValueContact" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Id_Organization" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="GeographyOfActivity">
+          <Key>
+            <PropertyRef Name="Id_GeographyOfActivity" />
+          </Key>
+          <Property Name="Id_GeographyOfActivity" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="ShortName" Type="nvarchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="GroupPeoples">
+          <Key>
+            <PropertyRef Name="Id_GroupPeoples" />
+          </Key>
+          <Property Name="Id_GroupPeoples" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Information" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Id_Organization" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="HeadOrganization">
+          <Key>
+            <PropertyRef Name="Id_HeadOrganization" />
+          </Key>
+          <Property Name="Id_HeadOrganization" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Information" Type="nvarchar(max)" />
+          <Property Name="Id_Organization" Type="int" Nullable="false" />
+          <Property Name="Photo" Type="nvarchar(max)" />
+          <Property Name="ShortName" Type="nvarchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="Organization">
+          <Key>
+            <PropertyRef Name="Id_Organization" />
+          </Key>
+          <Property Name="Id_Organization" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="FullName" Type="nvarchar(max)" />
+          <Property Name="DateReg" Type="datetime" />
+          <Property Name="Mission" Type="nvarchar(max)" />
+          <Property Name="Id_OrganizationLegalForm" Type="int" />
+          <Property Name="MaterialTechnicalBase" Type="nvarchar(max)" />
+          <Property Name="SettlementAccount" Type="nvarchar" MaxLength="100" />
+          <Property Name="ShortName" Type="nvarchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="Organization_Activity">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id_Organization" Type="int" Nullable="false" />
+          <Property Name="Id_Activity" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Organization_AvailableService">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id_Organization" Type="int" Nullable="false" />
+          <Property Name="Id_AvailableService" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Organization_CategoryOfClient">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id_Organization" Type="int" Nullable="false" />
+          <Property Name="Id_CategoryOfClient" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Organization_GeographyOfActivity">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id_Organization" Type="int" Nullable="false" />
+          <Property Name="Id_GeographyOfActivity" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Organization_SourceFinance">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id_Organization" Type="int" Nullable="false" />
+          <Property Name="Id_SourceFinance" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SettlementAccount" Type="nvarchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="OrganizationLegalForm">
+          <Key>
+            <PropertyRef Name="Id_OrganizationLegalForm" />
+          </Key>
+          <Property Name="Id_OrganizationLegalForm" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="ShortName" Type="nvarchar" MaxLength="10" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Organizations.dbo.PhotoMaterialTechnicalBase' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="PhotoMaterialTechnicalBase">
+          <Key>
+            <PropertyRef Name="Id_PhotoMaterialTechnicalBase" />
+            <PropertyRef Name="Photo" />
+            <PropertyRef Name="Id_Organization" />
+          </Key>
+          <Property Name="Id_PhotoMaterialTechnicalBase" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Photo" Type="nvarchar" MaxLength="300" Nullable="false" />
+          <Property Name="Id_Organization" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Project">
+          <Key>
+            <PropertyRef Name="Id_Project" />
+          </Key>
+          <Property Name="Id_Project" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Id_Organization" Type="int" Nullable="false" />
+          <Property Name="ShortName" Type="nvarchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="Service">
+          <Key>
+            <PropertyRef Name="Id_Service" />
+          </Key>
+          <Property Name="Id_Service" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="Conditions" Type="nvarchar(max)" />
+          <Property Name="Id_Organization" Type="int" Nullable="false" />
+          <Property Name="ShortName" Type="nvarchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="SourceFinance">
+          <Key>
+            <PropertyRef Name="Id_SourceFinance" />
+          </Key>
+          <Property Name="Id_SourceFinance" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserClaims" Type="Self.AspNetUserClaims" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserClaims">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserLogins">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+          <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetRoles">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="R_10">
+          <End Role="Organization" Type="Self.Organization" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Contact" Type="Self.Contact" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Organization">
+              <PropertyRef Name="Id_Organization" />
+            </Principal>
+            <Dependent Role="Contact">
+              <PropertyRef Name="Id_Organization" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="R_11">
+          <End Role="OrganizationLegalForm" Type="Self.OrganizationLegalForm" Multiplicity="0..1" />
+          <End Role="Organization" Type="Self.Organization" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OrganizationLegalForm">
+              <PropertyRef Name="Id_OrganizationLegalForm" />
+            </Principal>
+            <Dependent Role="Organization">
+              <PropertyRef Name="Id_OrganizationLegalForm" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="R_12">
+          <End Role="Organization" Type="Self.Organization" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Organization_Activity" Type="Self.Organization_Activity" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Organization">
+              <PropertyRef Name="Id_Organization" />
+            </Principal>
+            <Dependent Role="Organization_Activity">
+              <PropertyRef Name="Id_Organization" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="R_13">
+          <End Role="Activity" Type="Self.Activity" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Organization_Activity" Type="Self.Organization_Activity" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Activity">
+              <PropertyRef Name="Id_Activity" />
+            </Principal>
+            <Dependent Role="Organization_Activity">
+              <PropertyRef Name="Id_Activity" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="R_14">
+          <End Role="Organization" Type="Self.Organization" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Organization_CategoryOfClient" Type="Self.Organization_CategoryOfClient" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Organization">
+              <PropertyRef Name="Id_Organization" />
+            </Principal>
+            <Dependent Role="Organization_CategoryOfClient">
+              <PropertyRef Name="Id_Organization" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="R_15">
+          <End Role="CategoryOfClient" Type="Self.CategoryOfClient" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Organization_CategoryOfClient" Type="Self.Organization_CategoryOfClient" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CategoryOfClient">
+              <PropertyRef Name="Id_CategoryOfClient" />
+            </Principal>
+            <Dependent Role="Organization_CategoryOfClient">
+              <PropertyRef Name="Id_CategoryOfClient" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="R_16">
+          <End Role="Organization" Type="Self.Organization" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Organization_AvailableService" Type="Self.Organization_AvailableService" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Organization">
+              <PropertyRef Name="Id_Organization" />
+            </Principal>
+            <Dependent Role="Organization_AvailableService">
+              <PropertyRef Name="Id_Organization" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="R_17">
+          <End Role="AvailableService" Type="Self.AvailableService" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Organization_AvailableService" Type="Self.Organization_AvailableService" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AvailableService">
+              <PropertyRef Name="Id_AvailableService" />
+            </Principal>
+            <Dependent Role="Organization_AvailableService">
+              <PropertyRef Name="Id_AvailableService" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="R_2">
+          <End Role="Organization" Type="Self.Organization" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Project" Type="Self.Project" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Organization">
+              <PropertyRef Name="Id_Organization" />
+            </Principal>
+            <Dependent Role="Project">
+              <PropertyRef Name="Id_Organization" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="R_22">
+          <End Role="Organization" Type="Self.Organization" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Organization_GeographyOfActivity" Type="Self.Organization_GeographyOfActivity" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Organization">
+              <PropertyRef Name="Id_Organization" />
+            </Principal>
+            <Dependent Role="Organization_GeographyOfActivity">
+              <PropertyRef Name="Id_Organization" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="R_26">
+          <End Role="GeographyOfActivity" Type="Self.GeographyOfActivity" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Organization_GeographyOfActivity" Type="Self.Organization_GeographyOfActivity" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GeographyOfActivity">
+              <PropertyRef Name="Id_GeographyOfActivity" />
+            </Principal>
+            <Dependent Role="Organization_GeographyOfActivity">
+              <PropertyRef Name="Id_GeographyOfActivity" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="R_27">
+          <End Role="Organization" Type="Self.Organization" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="PhotoMaterialTechnicalBase" Type="Self.PhotoMaterialTechnicalBase" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Organization">
+              <PropertyRef Name="Id_Organization" />
+            </Principal>
+            <Dependent Role="PhotoMaterialTechnicalBase">
+              <PropertyRef Name="Id_Organization" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="R_28">
+          <End Role="Organization" Type="Self.Organization" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Organization_SourceFinance" Type="Self.Organization_SourceFinance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Organization">
+              <PropertyRef Name="Id_Organization" />
+            </Principal>
+            <Dependent Role="Organization_SourceFinance">
+              <PropertyRef Name="Id_Organization" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="R_29">
+          <End Role="SourceFinance" Type="Self.SourceFinance" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Organization_SourceFinance" Type="Self.Organization_SourceFinance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SourceFinance">
+              <PropertyRef Name="Id_SourceFinance" />
+            </Principal>
+            <Dependent Role="Organization_SourceFinance">
+              <PropertyRef Name="Id_SourceFinance" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="R_3">
+          <End Role="Organization" Type="Self.Organization" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Service" Type="Self.Service" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Organization">
+              <PropertyRef Name="Id_Organization" />
+            </Principal>
+            <Dependent Role="Service">
+              <PropertyRef Name="Id_Organization" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="R_30">
+          <End Role="Organization" Type="Self.Organization" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="HeadOrganization" Type="Self.HeadOrganization" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Organization">
+              <PropertyRef Name="Id_Organization" />
+            </Principal>
+            <Dependent Role="HeadOrganization">
+              <PropertyRef Name="Id_Organization" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="R_7">
+          <End Role="Organization" Type="Self.Organization" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="GroupPeoples" Type="Self.GroupPeoples" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Organization">
+              <PropertyRef Name="Id_Organization" />
+            </Principal>
+            <Dependent Role="GroupPeoples">
+              <PropertyRef Name="Id_Organization" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="OrganizationsModelStoreContainer">
+          <EntitySet Name="__MigrationHistory" EntityType="Self.__MigrationHistory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Activity" EntityType="Self.Activity" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AvailableService" EntityType="Self.AvailableService" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CategoryOfClient" EntityType="Self.CategoryOfClient" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Contact" EntityType="Self.Contact" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GeographyOfActivity" EntityType="Self.GeographyOfActivity" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GroupPeoples" EntityType="Self.GroupPeoples" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HeadOrganization" EntityType="Self.HeadOrganization" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Organization" EntityType="Self.Organization" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Organization_Activity" EntityType="Self.Organization_Activity" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Organization_AvailableService" EntityType="Self.Organization_AvailableService" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Organization_CategoryOfClient" EntityType="Self.Organization_CategoryOfClient" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Organization_GeographyOfActivity" EntityType="Self.Organization_GeographyOfActivity" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Organization_SourceFinance" EntityType="Self.Organization_SourceFinance" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OrganizationLegalForm" EntityType="Self.OrganizationLegalForm" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Project" EntityType="Self.Project" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Service" EntityType="Self.Service" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SourceFinance" EntityType="Self.SourceFinance" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PhotoMaterialTechnicalBase" EntityType="Self.PhotoMaterialTechnicalBase" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [PhotoMaterialTechnicalBase].[Id_PhotoMaterialTechnicalBase] AS [Id_PhotoMaterialTechnicalBase], 
+    [PhotoMaterialTechnicalBase].[Photo] AS [Photo], 
+    [PhotoMaterialTechnicalBase].[Id_Organization] AS [Id_Organization]
+    FROM [dbo].[PhotoMaterialTechnicalBase] AS [PhotoMaterialTechnicalBase]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="R_10" Association="Self.R_10">
+            <End Role="Organization" EntitySet="Organization" />
+            <End Role="Contact" EntitySet="Contact" />
+          </AssociationSet>
+          <AssociationSet Name="R_11" Association="Self.R_11">
+            <End Role="OrganizationLegalForm" EntitySet="OrganizationLegalForm" />
+            <End Role="Organization" EntitySet="Organization" />
+          </AssociationSet>
+          <AssociationSet Name="R_12" Association="Self.R_12">
+            <End Role="Organization" EntitySet="Organization" />
+            <End Role="Organization_Activity" EntitySet="Organization_Activity" />
+          </AssociationSet>
+          <AssociationSet Name="R_13" Association="Self.R_13">
+            <End Role="Activity" EntitySet="Activity" />
+            <End Role="Organization_Activity" EntitySet="Organization_Activity" />
+          </AssociationSet>
+          <AssociationSet Name="R_14" Association="Self.R_14">
+            <End Role="Organization" EntitySet="Organization" />
+            <End Role="Organization_CategoryOfClient" EntitySet="Organization_CategoryOfClient" />
+          </AssociationSet>
+          <AssociationSet Name="R_15" Association="Self.R_15">
+            <End Role="CategoryOfClient" EntitySet="CategoryOfClient" />
+            <End Role="Organization_CategoryOfClient" EntitySet="Organization_CategoryOfClient" />
+          </AssociationSet>
+          <AssociationSet Name="R_16" Association="Self.R_16">
+            <End Role="Organization" EntitySet="Organization" />
+            <End Role="Organization_AvailableService" EntitySet="Organization_AvailableService" />
+          </AssociationSet>
+          <AssociationSet Name="R_17" Association="Self.R_17">
+            <End Role="AvailableService" EntitySet="AvailableService" />
+            <End Role="Organization_AvailableService" EntitySet="Organization_AvailableService" />
+          </AssociationSet>
+          <AssociationSet Name="R_2" Association="Self.R_2">
+            <End Role="Organization" EntitySet="Organization" />
+            <End Role="Project" EntitySet="Project" />
+          </AssociationSet>
+          <AssociationSet Name="R_22" Association="Self.R_22">
+            <End Role="Organization" EntitySet="Organization" />
+            <End Role="Organization_GeographyOfActivity" EntitySet="Organization_GeographyOfActivity" />
+          </AssociationSet>
+          <AssociationSet Name="R_26" Association="Self.R_26">
+            <End Role="GeographyOfActivity" EntitySet="GeographyOfActivity" />
+            <End Role="Organization_GeographyOfActivity" EntitySet="Organization_GeographyOfActivity" />
+          </AssociationSet>
+          <AssociationSet Name="R_27" Association="Self.R_27">
+            <End Role="Organization" EntitySet="Organization" />
+            <End Role="PhotoMaterialTechnicalBase" EntitySet="PhotoMaterialTechnicalBase" />
+          </AssociationSet>
+          <AssociationSet Name="R_28" Association="Self.R_28">
+            <End Role="Organization" EntitySet="Organization" />
+            <End Role="Organization_SourceFinance" EntitySet="Organization_SourceFinance" />
+          </AssociationSet>
+          <AssociationSet Name="R_29" Association="Self.R_29">
+            <End Role="SourceFinance" EntitySet="SourceFinance" />
+            <End Role="Organization_SourceFinance" EntitySet="Organization_SourceFinance" />
+          </AssociationSet>
+          <AssociationSet Name="R_3" Association="Self.R_3">
+            <End Role="Organization" EntitySet="Organization" />
+            <End Role="Service" EntitySet="Service" />
+          </AssociationSet>
+          <AssociationSet Name="R_30" Association="Self.R_30">
+            <End Role="Organization" EntitySet="Organization" />
+            <End Role="HeadOrganization" EntitySet="HeadOrganization" />
+          </AssociationSet>
+          <AssociationSet Name="R_7" Association="Self.R_7">
+            <End Role="Organization" EntitySet="Organization" />
+            <End Role="GroupPeoples" EntitySet="GroupPeoples" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="OrganizationsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="C__MigrationHistory">
+          <Key>
+            <PropertyRef Name="MigrationId" />
+            <PropertyRef Name="ContextKey" />
+          </Key>
+          <Property Name="MigrationId" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ContextKey" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Model" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+          <Property Name="ProductVersion" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Activity">
+          <Key>
+            <PropertyRef Name="Id_Activity" />
+          </Key>
+          <Property Name="Id_Activity" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ShortName" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Organization_Activity" Relationship="Self.R_13" FromRole="Activity" ToRole="Organization_Activity" />
+        </EntityType>
+        <EntityType Name="AspNetRoles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUsers" Relationship="Self.AspNetUserRoles" FromRole="AspNetRoles" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUserClaims">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUsers" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUserClaims" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogins">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="LoginProvider" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ProviderKey" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUsers" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUserLogins" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUsers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
+          <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUserClaims" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserClaims" />
+          <NavigationProperty Name="AspNetUserLogins" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserLogins" />
+          <NavigationProperty Name="AspNetRoles" Relationship="Self.AspNetUserRoles" FromRole="AspNetUsers" ToRole="AspNetRoles" />
+        </EntityType>
+        <EntityType Name="AvailableService">
+          <Key>
+            <PropertyRef Name="Id_AvailableService" />
+          </Key>
+          <Property Name="Id_AvailableService" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ShortName" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Organization_AvailableService" Relationship="Self.R_17" FromRole="AvailableService" ToRole="Organization_AvailableService" />
+        </EntityType>
+        <EntityType Name="CategoryOfClient">
+          <Key>
+            <PropertyRef Name="Id_CategoryOfClient" />
+          </Key>
+          <Property Name="Id_CategoryOfClient" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ShortName" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Organization_CategoryOfClient" Relationship="Self.R_15" FromRole="CategoryOfClient" ToRole="Organization_CategoryOfClient" />
+        </EntityType>
+        <EntityType Name="Contact">
+          <Key>
+            <PropertyRef Name="Id_Contact" />
+          </Key>
+          <Property Name="Id_Contact" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TypeContact" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ValueContact" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Id_Organization" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Organization" Relationship="Self.R_10" FromRole="Contact" ToRole="Organization" />
+        </EntityType>
+        <EntityType Name="GeographyOfActivity">
+          <Key>
+            <PropertyRef Name="Id_GeographyOfActivity" />
+          </Key>
+          <Property Name="Id_GeographyOfActivity" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ShortName" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Organization_GeographyOfActivity" Relationship="Self.R_26" FromRole="GeographyOfActivity" ToRole="Organization_GeographyOfActivity" />
+        </EntityType>
+        <EntityType Name="GroupPeoples">
+          <Key>
+            <PropertyRef Name="Id_GroupPeoples" />
+          </Key>
+          <Property Name="Id_GroupPeoples" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Information" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Id_Organization" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Organization" Relationship="Self.R_7" FromRole="GroupPeoples" ToRole="Organization" />
+        </EntityType>
+        <EntityType Name="HeadOrganization">
+          <Key>
+            <PropertyRef Name="Id_HeadOrganization" />
+          </Key>
+          <Property Name="Id_HeadOrganization" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Information" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Id_Organization" Type="Int32" Nullable="false" />
+          <Property Name="Photo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ShortName" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Organization" Relationship="Self.R_30" FromRole="HeadOrganization" ToRole="Organization" />
+        </EntityType>
+        <EntityType Name="Organization">
+          <Key>
+            <PropertyRef Name="Id_Organization" />
+          </Key>
+          <Property Name="Id_Organization" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="FullName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DateReg" Type="DateTime" Precision="3" />
+          <Property Name="Mission" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Id_OrganizationLegalForm" Type="Int32" />
+          <Property Name="MaterialTechnicalBase" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SettlementAccount" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ShortName" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Contact" Relationship="Self.R_10" FromRole="Organization" ToRole="Contact" />
+          <NavigationProperty Name="GroupPeoples" Relationship="Self.R_7" FromRole="Organization" ToRole="GroupPeoples" />
+          <NavigationProperty Name="HeadOrganization" Relationship="Self.R_30" FromRole="Organization" ToRole="HeadOrganization" />
+          <NavigationProperty Name="OrganizationLegalForm" Relationship="Self.R_11" FromRole="Organization" ToRole="OrganizationLegalForm" />
+          <NavigationProperty Name="Organization_Activity" Relationship="Self.R_12" FromRole="Organization" ToRole="Organization_Activity" />
+          <NavigationProperty Name="Organization_CategoryOfClient" Relationship="Self.R_14" FromRole="Organization" ToRole="Organization_CategoryOfClient" />
+          <NavigationProperty Name="Organization_AvailableService" Relationship="Self.R_16" FromRole="Organization" ToRole="Organization_AvailableService" />
+          <NavigationProperty Name="Project" Relationship="Self.R_2" FromRole="Organization" ToRole="Project" />
+          <NavigationProperty Name="Organization_GeographyOfActivity" Relationship="Self.R_22" FromRole="Organization" ToRole="Organization_GeographyOfActivity" />
+          <NavigationProperty Name="PhotoMaterialTechnicalBase" Relationship="Self.R_27" FromRole="Organization" ToRole="PhotoMaterialTechnicalBase" />
+          <NavigationProperty Name="Organization_SourceFinance" Relationship="Self.R_28" FromRole="Organization" ToRole="Organization_SourceFinance" />
+          <NavigationProperty Name="Service" Relationship="Self.R_3" FromRole="Organization" ToRole="Service" />
+        </EntityType>
+        <EntityType Name="Organization_Activity">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Id_Organization" Type="Int32" Nullable="false" />
+          <Property Name="Id_Activity" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Activity" Relationship="Self.R_13" FromRole="Organization_Activity" ToRole="Activity" />
+          <NavigationProperty Name="Organization" Relationship="Self.R_12" FromRole="Organization_Activity" ToRole="Organization" />
+        </EntityType>
+        <EntityType Name="Organization_AvailableService">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Id_Organization" Type="Int32" Nullable="false" />
+          <Property Name="Id_AvailableService" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="AvailableService" Relationship="Self.R_17" FromRole="Organization_AvailableService" ToRole="AvailableService" />
+          <NavigationProperty Name="Organization" Relationship="Self.R_16" FromRole="Organization_AvailableService" ToRole="Organization" />
+        </EntityType>
+        <EntityType Name="Organization_CategoryOfClient">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Id_Organization" Type="Int32" Nullable="false" />
+          <Property Name="Id_CategoryOfClient" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="CategoryOfClient" Relationship="Self.R_15" FromRole="Organization_CategoryOfClient" ToRole="CategoryOfClient" />
+          <NavigationProperty Name="Organization" Relationship="Self.R_14" FromRole="Organization_CategoryOfClient" ToRole="Organization" />
+        </EntityType>
+        <EntityType Name="Organization_GeographyOfActivity">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Id_Organization" Type="Int32" Nullable="false" />
+          <Property Name="Id_GeographyOfActivity" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="GeographyOfActivity" Relationship="Self.R_26" FromRole="Organization_GeographyOfActivity" ToRole="GeographyOfActivity" />
+          <NavigationProperty Name="Organization" Relationship="Self.R_22" FromRole="Organization_GeographyOfActivity" ToRole="Organization" />
+        </EntityType>
+        <EntityType Name="Organization_SourceFinance">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id_Organization" Type="Int32" Nullable="false" />
+          <Property Name="Id_SourceFinance" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SettlementAccount" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Organization" Relationship="Self.R_28" FromRole="Organization_SourceFinance" ToRole="Organization" />
+          <NavigationProperty Name="SourceFinance" Relationship="Self.R_29" FromRole="Organization_SourceFinance" ToRole="SourceFinance" />
+        </EntityType>
+        <EntityType Name="OrganizationLegalForm">
+          <Key>
+            <PropertyRef Name="Id_OrganizationLegalForm" />
+          </Key>
+          <Property Name="Id_OrganizationLegalForm" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ShortName" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Organization" Relationship="Self.R_11" FromRole="OrganizationLegalForm" ToRole="Organization" />
+        </EntityType>
+        <EntityType Name="Project">
+          <Key>
+            <PropertyRef Name="Id_Project" />
+          </Key>
+          <Property Name="Id_Project" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Id_Organization" Type="Int32" Nullable="false" />
+          <Property Name="ShortName" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Organization" Relationship="Self.R_2" FromRole="Project" ToRole="Organization" />
+        </EntityType>
+        <EntityType Name="Service">
+          <Key>
+            <PropertyRef Name="Id_Service" />
+          </Key>
+          <Property Name="Id_Service" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Conditions" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Id_Organization" Type="Int32" Nullable="false" />
+          <Property Name="ShortName" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Organization" Relationship="Self.R_3" FromRole="Service" ToRole="Organization" />
+        </EntityType>
+        <EntityType Name="SourceFinance">
+          <Key>
+            <PropertyRef Name="Id_SourceFinance" />
+          </Key>
+          <Property Name="Id_SourceFinance" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Organization_SourceFinance" Relationship="Self.R_29" FromRole="SourceFinance" ToRole="Organization_SourceFinance" />
+        </EntityType>
+        <EntityType Name="PhotoMaterialTechnicalBase">
+          <Key>
+            <PropertyRef Name="Id_PhotoMaterialTechnicalBase" />
+            <PropertyRef Name="Photo" />
+            <PropertyRef Name="Id_Organization" />
+          </Key>
+          <Property Name="Id_PhotoMaterialTechnicalBase" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Photo" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Id_Organization" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Organization" Relationship="Self.R_27" FromRole="PhotoMaterialTechnicalBase" ToRole="Organization" />
+        </EntityType>
+        <Association Name="R_13">
+          <End Role="Activity" Type="Self.Activity" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Organization_Activity" Type="Self.Organization_Activity" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Activity">
+              <PropertyRef Name="Id_Activity" />
+            </Principal>
+            <Dependent Role="Organization_Activity">
+              <PropertyRef Name="Id_Activity" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserClaims" Type="Self.AspNetUserClaims" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserClaims">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserLogins">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="R_17">
+          <End Role="AvailableService" Type="Self.AvailableService" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Organization_AvailableService" Type="Self.Organization_AvailableService" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AvailableService">
+              <PropertyRef Name="Id_AvailableService" />
+            </Principal>
+            <Dependent Role="Organization_AvailableService">
+              <PropertyRef Name="Id_AvailableService" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="R_15">
+          <End Role="CategoryOfClient" Type="Self.CategoryOfClient" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Organization_CategoryOfClient" Type="Self.Organization_CategoryOfClient" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CategoryOfClient">
+              <PropertyRef Name="Id_CategoryOfClient" />
+            </Principal>
+            <Dependent Role="Organization_CategoryOfClient">
+              <PropertyRef Name="Id_CategoryOfClient" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="R_10">
+          <End Role="Organization" Type="Self.Organization" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Contact" Type="Self.Contact" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Organization">
+              <PropertyRef Name="Id_Organization" />
+            </Principal>
+            <Dependent Role="Contact">
+              <PropertyRef Name="Id_Organization" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="R_26">
+          <End Role="GeographyOfActivity" Type="Self.GeographyOfActivity" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Organization_GeographyOfActivity" Type="Self.Organization_GeographyOfActivity" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GeographyOfActivity">
+              <PropertyRef Name="Id_GeographyOfActivity" />
+            </Principal>
+            <Dependent Role="Organization_GeographyOfActivity">
+              <PropertyRef Name="Id_GeographyOfActivity" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="R_7">
+          <End Role="Organization" Type="Self.Organization" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="GroupPeoples" Type="Self.GroupPeoples" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Organization">
+              <PropertyRef Name="Id_Organization" />
+            </Principal>
+            <Dependent Role="GroupPeoples">
+              <PropertyRef Name="Id_Organization" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="R_30">
+          <End Role="Organization" Type="Self.Organization" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="HeadOrganization" Type="Self.HeadOrganization" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Organization">
+              <PropertyRef Name="Id_Organization" />
+            </Principal>
+            <Dependent Role="HeadOrganization">
+              <PropertyRef Name="Id_Organization" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="R_11">
+          <End Role="OrganizationLegalForm" Type="Self.OrganizationLegalForm" Multiplicity="0..1" />
+          <End Role="Organization" Type="Self.Organization" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OrganizationLegalForm">
+              <PropertyRef Name="Id_OrganizationLegalForm" />
+            </Principal>
+            <Dependent Role="Organization">
+              <PropertyRef Name="Id_OrganizationLegalForm" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="R_12">
+          <End Role="Organization" Type="Self.Organization" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Organization_Activity" Type="Self.Organization_Activity" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Organization">
+              <PropertyRef Name="Id_Organization" />
+            </Principal>
+            <Dependent Role="Organization_Activity">
+              <PropertyRef Name="Id_Organization" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="R_14">
+          <End Role="Organization" Type="Self.Organization" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Organization_CategoryOfClient" Type="Self.Organization_CategoryOfClient" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Organization">
+              <PropertyRef Name="Id_Organization" />
+            </Principal>
+            <Dependent Role="Organization_CategoryOfClient">
+              <PropertyRef Name="Id_Organization" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="R_16">
+          <End Role="Organization" Type="Self.Organization" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Organization_AvailableService" Type="Self.Organization_AvailableService" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Organization">
+              <PropertyRef Name="Id_Organization" />
+            </Principal>
+            <Dependent Role="Organization_AvailableService">
+              <PropertyRef Name="Id_Organization" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="R_2">
+          <End Role="Organization" Type="Self.Organization" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Project" Type="Self.Project" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Organization">
+              <PropertyRef Name="Id_Organization" />
+            </Principal>
+            <Dependent Role="Project">
+              <PropertyRef Name="Id_Organization" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="R_22">
+          <End Role="Organization" Type="Self.Organization" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Organization_GeographyOfActivity" Type="Self.Organization_GeographyOfActivity" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Organization">
+              <PropertyRef Name="Id_Organization" />
+            </Principal>
+            <Dependent Role="Organization_GeographyOfActivity">
+              <PropertyRef Name="Id_Organization" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="R_27">
+          <End Role="Organization" Type="Self.Organization" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="PhotoMaterialTechnicalBase" Type="Self.PhotoMaterialTechnicalBase" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Organization">
+              <PropertyRef Name="Id_Organization" />
+            </Principal>
+            <Dependent Role="PhotoMaterialTechnicalBase">
+              <PropertyRef Name="Id_Organization" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="R_28">
+          <End Role="Organization" Type="Self.Organization" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Organization_SourceFinance" Type="Self.Organization_SourceFinance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Organization">
+              <PropertyRef Name="Id_Organization" />
+            </Principal>
+            <Dependent Role="Organization_SourceFinance">
+              <PropertyRef Name="Id_Organization" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="R_3">
+          <End Role="Organization" Type="Self.Organization" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Service" Type="Self.Service" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Organization">
+              <PropertyRef Name="Id_Organization" />
+            </Principal>
+            <Dependent Role="Service">
+              <PropertyRef Name="Id_Organization" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="R_29">
+          <End Role="SourceFinance" Type="Self.SourceFinance" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Organization_SourceFinance" Type="Self.Organization_SourceFinance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SourceFinance">
+              <PropertyRef Name="Id_SourceFinance" />
+            </Principal>
+            <Dependent Role="Organization_SourceFinance">
+              <PropertyRef Name="Id_SourceFinance" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AspNetUserRoles">
+          <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="*" />
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="OrganizationsEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="C__MigrationHistory" EntityType="Self.C__MigrationHistory" />
+          <EntitySet Name="Activity" EntityType="Self.Activity" />
+          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" />
+          <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" />
+          <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" />
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" />
+          <EntitySet Name="AvailableService" EntityType="Self.AvailableService" />
+          <EntitySet Name="CategoryOfClient" EntityType="Self.CategoryOfClient" />
+          <EntitySet Name="Contact" EntityType="Self.Contact" />
+          <EntitySet Name="GeographyOfActivity" EntityType="Self.GeographyOfActivity" />
+          <EntitySet Name="GroupPeoples" EntityType="Self.GroupPeoples" />
+          <EntitySet Name="HeadOrganization" EntityType="Self.HeadOrganization" />
+          <EntitySet Name="Organization" EntityType="Self.Organization" />
+          <EntitySet Name="Organization_Activity" EntityType="Self.Organization_Activity" />
+          <EntitySet Name="Organization_AvailableService" EntityType="Self.Organization_AvailableService" />
+          <EntitySet Name="Organization_CategoryOfClient" EntityType="Self.Organization_CategoryOfClient" />
+          <EntitySet Name="Organization_GeographyOfActivity" EntityType="Self.Organization_GeographyOfActivity" />
+          <EntitySet Name="Organization_SourceFinance" EntityType="Self.Organization_SourceFinance" />
+          <EntitySet Name="OrganizationLegalForm" EntityType="Self.OrganizationLegalForm" />
+          <EntitySet Name="Project" EntityType="Self.Project" />
+          <EntitySet Name="Service" EntityType="Self.Service" />
+          <EntitySet Name="SourceFinance" EntityType="Self.SourceFinance" />
+          <EntitySet Name="PhotoMaterialTechnicalBase" EntityType="Self.PhotoMaterialTechnicalBase" />
+          <AssociationSet Name="R_13" Association="Self.R_13">
+            <End Role="Activity" EntitySet="Activity" />
+            <End Role="Organization_Activity" EntitySet="Organization_Activity" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="R_17" Association="Self.R_17">
+            <End Role="AvailableService" EntitySet="AvailableService" />
+            <End Role="Organization_AvailableService" EntitySet="Organization_AvailableService" />
+          </AssociationSet>
+          <AssociationSet Name="R_15" Association="Self.R_15">
+            <End Role="CategoryOfClient" EntitySet="CategoryOfClient" />
+            <End Role="Organization_CategoryOfClient" EntitySet="Organization_CategoryOfClient" />
+          </AssociationSet>
+          <AssociationSet Name="R_10" Association="Self.R_10">
+            <End Role="Organization" EntitySet="Organization" />
+            <End Role="Contact" EntitySet="Contact" />
+          </AssociationSet>
+          <AssociationSet Name="R_26" Association="Self.R_26">
+            <End Role="GeographyOfActivity" EntitySet="GeographyOfActivity" />
+            <End Role="Organization_GeographyOfActivity" EntitySet="Organization_GeographyOfActivity" />
+          </AssociationSet>
+          <AssociationSet Name="R_7" Association="Self.R_7">
+            <End Role="Organization" EntitySet="Organization" />
+            <End Role="GroupPeoples" EntitySet="GroupPeoples" />
+          </AssociationSet>
+          <AssociationSet Name="R_30" Association="Self.R_30">
+            <End Role="Organization" EntitySet="Organization" />
+            <End Role="HeadOrganization" EntitySet="HeadOrganization" />
+          </AssociationSet>
+          <AssociationSet Name="R_11" Association="Self.R_11">
+            <End Role="OrganizationLegalForm" EntitySet="OrganizationLegalForm" />
+            <End Role="Organization" EntitySet="Organization" />
+          </AssociationSet>
+          <AssociationSet Name="R_12" Association="Self.R_12">
+            <End Role="Organization" EntitySet="Organization" />
+            <End Role="Organization_Activity" EntitySet="Organization_Activity" />
+          </AssociationSet>
+          <AssociationSet Name="R_14" Association="Self.R_14">
+            <End Role="Organization" EntitySet="Organization" />
+            <End Role="Organization_CategoryOfClient" EntitySet="Organization_CategoryOfClient" />
+          </AssociationSet>
+          <AssociationSet Name="R_16" Association="Self.R_16">
+            <End Role="Organization" EntitySet="Organization" />
+            <End Role="Organization_AvailableService" EntitySet="Organization_AvailableService" />
+          </AssociationSet>
+          <AssociationSet Name="R_2" Association="Self.R_2">
+            <End Role="Organization" EntitySet="Organization" />
+            <End Role="Project" EntitySet="Project" />
+          </AssociationSet>
+          <AssociationSet Name="R_22" Association="Self.R_22">
+            <End Role="Organization" EntitySet="Organization" />
+            <End Role="Organization_GeographyOfActivity" EntitySet="Organization_GeographyOfActivity" />
+          </AssociationSet>
+          <AssociationSet Name="R_27" Association="Self.R_27">
+            <End Role="Organization" EntitySet="Organization" />
+            <End Role="PhotoMaterialTechnicalBase" EntitySet="PhotoMaterialTechnicalBase" />
+          </AssociationSet>
+          <AssociationSet Name="R_28" Association="Self.R_28">
+            <End Role="Organization" EntitySet="Organization" />
+            <End Role="Organization_SourceFinance" EntitySet="Organization_SourceFinance" />
+          </AssociationSet>
+          <AssociationSet Name="R_3" Association="Self.R_3">
+            <End Role="Organization" EntitySet="Organization" />
+            <End Role="Service" EntitySet="Service" />
+          </AssociationSet>
+          <AssociationSet Name="R_29" Association="Self.R_29">
+            <End Role="SourceFinance" EntitySet="SourceFinance" />
+            <End Role="Organization_SourceFinance" EntitySet="Organization_SourceFinance" />
+          </AssociationSet>
+          <AssociationSet Name="AspNetUserRoles" Association="Self.AspNetUserRoles">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="OrganizationsModelStoreContainer" CdmEntityContainer="OrganizationsEntities">
+          <EntitySetMapping Name="C__MigrationHistory">
+            <EntityTypeMapping TypeName="OrganizationsModel.C__MigrationHistory">
+              <MappingFragment StoreEntitySet="__MigrationHistory">
+                <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
+                <ScalarProperty Name="ContextKey" ColumnName="ContextKey" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Activity">
+            <EntityTypeMapping TypeName="OrganizationsModel.Activity">
+              <MappingFragment StoreEntitySet="Activity">
+                <ScalarProperty Name="Id_Activity" ColumnName="Id_Activity" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ShortName" ColumnName="ShortName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetRoles">
+            <EntityTypeMapping TypeName="OrganizationsModel.AspNetRoles">
+              <MappingFragment StoreEntitySet="AspNetRoles">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserClaims">
+            <EntityTypeMapping TypeName="OrganizationsModel.AspNetUserClaims">
+              <MappingFragment StoreEntitySet="AspNetUserClaims">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+                <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserLogins">
+            <EntityTypeMapping TypeName="OrganizationsModel.AspNetUserLogins">
+              <MappingFragment StoreEntitySet="AspNetUserLogins">
+                <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+                <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUsers">
+            <EntityTypeMapping TypeName="OrganizationsModel.AspNetUsers">
+              <MappingFragment StoreEntitySet="AspNetUsers">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+                <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+                <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+                <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+                <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+                <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+                <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AvailableService">
+            <EntityTypeMapping TypeName="OrganizationsModel.AvailableService">
+              <MappingFragment StoreEntitySet="AvailableService">
+                <ScalarProperty Name="Id_AvailableService" ColumnName="Id_AvailableService" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ShortName" ColumnName="ShortName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CategoryOfClient">
+            <EntityTypeMapping TypeName="OrganizationsModel.CategoryOfClient">
+              <MappingFragment StoreEntitySet="CategoryOfClient">
+                <ScalarProperty Name="Id_CategoryOfClient" ColumnName="Id_CategoryOfClient" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ShortName" ColumnName="ShortName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Contact">
+            <EntityTypeMapping TypeName="OrganizationsModel.Contact">
+              <MappingFragment StoreEntitySet="Contact">
+                <ScalarProperty Name="Id_Contact" ColumnName="Id_Contact" />
+                <ScalarProperty Name="TypeContact" ColumnName="TypeContact" />
+                <ScalarProperty Name="ValueContact" ColumnName="ValueContact" />
+                <ScalarProperty Name="Id_Organization" ColumnName="Id_Organization" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GeographyOfActivity">
+            <EntityTypeMapping TypeName="OrganizationsModel.GeographyOfActivity">
+              <MappingFragment StoreEntitySet="GeographyOfActivity">
+                <ScalarProperty Name="Id_GeographyOfActivity" ColumnName="Id_GeographyOfActivity" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ShortName" ColumnName="ShortName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GroupPeoples">
+            <EntityTypeMapping TypeName="OrganizationsModel.GroupPeoples">
+              <MappingFragment StoreEntitySet="GroupPeoples">
+                <ScalarProperty Name="Id_GroupPeoples" ColumnName="Id_GroupPeoples" />
+                <ScalarProperty Name="Information" ColumnName="Information" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id_Organization" ColumnName="Id_Organization" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HeadOrganization">
+            <EntityTypeMapping TypeName="OrganizationsModel.HeadOrganization">
+              <MappingFragment StoreEntitySet="HeadOrganization">
+                <ScalarProperty Name="Id_HeadOrganization" ColumnName="Id_HeadOrganization" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Information" ColumnName="Information" />
+                <ScalarProperty Name="Id_Organization" ColumnName="Id_Organization" />
+                <ScalarProperty Name="Photo" ColumnName="Photo" />
+                <ScalarProperty Name="ShortName" ColumnName="ShortName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Organization">
+            <EntityTypeMapping TypeName="OrganizationsModel.Organization">
+              <MappingFragment StoreEntitySet="Organization">
+                <ScalarProperty Name="Id_Organization" ColumnName="Id_Organization" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="DateReg" ColumnName="DateReg" />
+                <ScalarProperty Name="Mission" ColumnName="Mission" />
+                <ScalarProperty Name="Id_OrganizationLegalForm" ColumnName="Id_OrganizationLegalForm" />
+                <ScalarProperty Name="MaterialTechnicalBase" ColumnName="MaterialTechnicalBase" />
+                <ScalarProperty Name="SettlementAccount" ColumnName="SettlementAccount" />
+                <ScalarProperty Name="ShortName" ColumnName="ShortName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Organization_Activity">
+            <EntityTypeMapping TypeName="OrganizationsModel.Organization_Activity">
+              <MappingFragment StoreEntitySet="Organization_Activity">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Id_Organization" ColumnName="Id_Organization" />
+                <ScalarProperty Name="Id_Activity" ColumnName="Id_Activity" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Organization_AvailableService">
+            <EntityTypeMapping TypeName="OrganizationsModel.Organization_AvailableService">
+              <MappingFragment StoreEntitySet="Organization_AvailableService">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Id_Organization" ColumnName="Id_Organization" />
+                <ScalarProperty Name="Id_AvailableService" ColumnName="Id_AvailableService" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Organization_CategoryOfClient">
+            <EntityTypeMapping TypeName="OrganizationsModel.Organization_CategoryOfClient">
+              <MappingFragment StoreEntitySet="Organization_CategoryOfClient">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Id_Organization" ColumnName="Id_Organization" />
+                <ScalarProperty Name="Id_CategoryOfClient" ColumnName="Id_CategoryOfClient" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Organization_GeographyOfActivity">
+            <EntityTypeMapping TypeName="OrganizationsModel.Organization_GeographyOfActivity">
+              <MappingFragment StoreEntitySet="Organization_GeographyOfActivity">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Id_Organization" ColumnName="Id_Organization" />
+                <ScalarProperty Name="Id_GeographyOfActivity" ColumnName="Id_GeographyOfActivity" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Organization_SourceFinance">
+            <EntityTypeMapping TypeName="OrganizationsModel.Organization_SourceFinance">
+              <MappingFragment StoreEntitySet="Organization_SourceFinance">
+                <ScalarProperty Name="Id_Organization" ColumnName="Id_Organization" />
+                <ScalarProperty Name="Id_SourceFinance" ColumnName="Id_SourceFinance" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="SettlementAccount" ColumnName="SettlementAccount" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OrganizationLegalForm">
+            <EntityTypeMapping TypeName="OrganizationsModel.OrganizationLegalForm">
+              <MappingFragment StoreEntitySet="OrganizationLegalForm">
+                <ScalarProperty Name="Id_OrganizationLegalForm" ColumnName="Id_OrganizationLegalForm" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ShortName" ColumnName="ShortName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Project">
+            <EntityTypeMapping TypeName="OrganizationsModel.Project">
+              <MappingFragment StoreEntitySet="Project">
+                <ScalarProperty Name="Id_Project" ColumnName="Id_Project" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id_Organization" ColumnName="Id_Organization" />
+                <ScalarProperty Name="ShortName" ColumnName="ShortName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Service">
+            <EntityTypeMapping TypeName="OrganizationsModel.Service">
+              <MappingFragment StoreEntitySet="Service">
+                <ScalarProperty Name="Id_Service" ColumnName="Id_Service" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Conditions" ColumnName="Conditions" />
+                <ScalarProperty Name="Id_Organization" ColumnName="Id_Organization" />
+                <ScalarProperty Name="ShortName" ColumnName="ShortName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SourceFinance">
+            <EntityTypeMapping TypeName="OrganizationsModel.SourceFinance">
+              <MappingFragment StoreEntitySet="SourceFinance">
+                <ScalarProperty Name="Id_SourceFinance" ColumnName="Id_SourceFinance" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PhotoMaterialTechnicalBase">
+            <EntityTypeMapping TypeName="OrganizationsModel.PhotoMaterialTechnicalBase">
+              <MappingFragment StoreEntitySet="PhotoMaterialTechnicalBase">
+                <ScalarProperty Name="Id_PhotoMaterialTechnicalBase" ColumnName="Id_PhotoMaterialTechnicalBase" />
+                <ScalarProperty Name="Photo" ColumnName="Photo" />
+                <ScalarProperty Name="Id_Organization" ColumnName="Id_Organization" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="AspNetUserRoles" TypeName="OrganizationsModel.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
+            <EndProperty Name="AspNetRoles">
+              <ScalarProperty Name="Id" ColumnName="RoleId" />
+            </EndProperty>
+            <EndProperty Name="AspNetUsers">
+              <ScalarProperty Name="Id" ColumnName="UserId" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

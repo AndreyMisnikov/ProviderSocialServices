@@ -1,0 +1,82 @@
+﻿@model ProviderSocialServices.Organization
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Organization</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FullName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FullName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateReg)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateReg)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Mission)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Mission)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MaterialTechnicalBase)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaterialTechnicalBase)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SettlementAccount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SettlementAccount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ShortName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ShortName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OrganizationLegalForm.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OrganizationLegalForm.Name)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id_Organization }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
